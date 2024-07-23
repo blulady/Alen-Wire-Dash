@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { Profile } from '../../shared/models/profile'
+import { Position } from '../../shared/models/position'
 
 
 @Injectable({
@@ -54,6 +55,9 @@ export class AuthenticationService {
   }
   adminGetProfile(name:string){
     return this.http.get<Profile>(`${environment.apiUrl}/profiles/name/${name}`)
+  }
+  adminGetProfilePositions(profile_id: number){
+    return this.http.get<Position[]>(`${environment.apiUrl}/profiles/${profile_id}/positions`)
   }
   createProfile(employee_number: number, first_name: string, last_name: string, user_id:number, is_admin: boolean) {
     return this.http.post(`${environment.apiUrl}/profiles/`, {profile: { employee_number, first_name, last_name, user_id, is_admin}})

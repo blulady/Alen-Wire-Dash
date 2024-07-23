@@ -5,7 +5,7 @@ export class Profile {
   first_name: string;
   last_name: string;
   is_admin: boolean;
-  // positions:[] = [];
+  positions:[] = [];
 
 
   constructor(profile:any){
@@ -15,7 +15,7 @@ export class Profile {
     this.first_name = profile.first_name;
     this.last_name = profile.last_name;
     this.is_admin = profile.is_admin;
-    // this.positions = profile.positions;
+    this.positions = profile.positions;
 
 
   }
